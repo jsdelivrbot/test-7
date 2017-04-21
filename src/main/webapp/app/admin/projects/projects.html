@@ -1,0 +1,45 @@
+<div>
+    <h2 >Listado de proyectos </h2>
+
+    <div class="table-responsive">
+	<table id="" class="table  table-hover table-bordered">
+		<thead >
+		    <tr >
+		    <th class="col-md-2 " >Nombre</th>
+		    <th class="col-md-2 text-center" >Descripción</th>
+		    <th class="col-md-2 text-center" >Propietario</th>
+		    <th class="col-md-2 text-center" >Errores abiertos</th>
+
+		    </tr>
+		</thead>
+		<tbody>
+		    <tr ng-repeat="project in vm.projects"  ng-click="vm.onClickProject(project)" ng-class="{ 'danger': project.open_issues_count > 0}">
+		    <td>
+ 				{{project.name}}
+
+		    </td>
+		    <td class="">
+		            {{project.description}}
+		        
+		    </td>
+		    <td class="">
+		        {{project.owner.name}}
+		    </td>
+		     <td class="text-center">
+		        {{project.open_issues_count}}
+		    </td>
+		    </tr>
+		</tbody>
+	</table>
+	</div>
+
+    </div>
+
+
+
+<div class="text-center " ng-hide="loading" >      
+	<ul class="pagination pg-dark" role="navigation"  >       
+		<li class="page-item" ng-class="{ 'active': (n + 1) == vm.actual }"  ng-repeat='n in vm.getPages()'><a class="page-link" href="" ng-click="vm.onClickPage(n + 1)" >{{n + 1}}</a></li>         
+		<!--li ng-if="!(vm.actual==vm.totalpages)" ><a href="" ng-click=''>Siguiente</a></li-->
+	</ul>   
+</div>

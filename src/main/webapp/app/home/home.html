@@ -1,0 +1,46 @@
+
+<div ng-cloak>
+<div class="row">
+    <h1 class="text-center " >Portal de exportación </h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+            <br><br><br>
+            <span class="scjn-azul img-responsive img-rounded"></span>
+    </div>
+    <div class="col-md-6">
+
+
+                    
+                    <div class="bg-info home-div" ng-show="vm.isAuthenticatedGitlab" >
+
+                        <blockquote class="blockquote-reverse">
+                            <address>
+                              <strong>{{vm.gitlabAccount.name}}</strong><br>
+                              <a href="mailto:#">{{vm.gitlabAccount.email}}</a>
+                            </address>
+                        </blockquote>
+
+                    </div> 
+
+                    <div class="jumbotron" style="margin-bottom:5em;"ng-show="vm.isAuthenticatedGitlab" >
+                      <h1>Bienvenido</h1>
+                      <p class="text-muted font-weight-normal">En este portal podrás exportar los issues de tus proyectos de Gitlab de la SCJN en un archivo formato xlsx.</p>
+                      <p><button ng-show="vm.isAuthenticatedGitlab" type="button" class="btn btn-primary  btn-lg btn-block" ng-click="vm.getAllProjects()">Ver projectos</button></p>
+                    </div>
+
+                   <button ng-show="!vm.isAuthenticatedGitlab" type="button" class="btn btn-primary btn-raised btn-lg btn-block home-pos-btn" ng-click="vm.loginGitlab()">
+                    <span> <i class="fa fa-gitlab " aria-hidden="true" style="padding-right:1em;"></i> Entrar con GitLab</span></button>
+
+                    
+    </div>
+</div>
+</div>
+
+
+
+
+
+

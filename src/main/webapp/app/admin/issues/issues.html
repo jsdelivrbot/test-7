@@ -1,0 +1,45 @@
+<div >
+    <h2 >Registro de errores del proyecto </h2>
+    <br>
+    <br>
+	<button class="btn btn-raised btn-primary  " ng-click="vm.exportData()">Exportar todo </button>
+    <div class="table-responsive">
+	<table id="" class="table table-bordered ">
+		<thead>
+		    <tr>
+		    <th class="col-md-2 " >Título</th>
+		    <th class="col-md-2 text-center" >Estado</th>
+		    
+		    <th class="col-md-2 text-center" >Autor</th>
+		    <th class="col-md-2 text-center" >Asignado a</th>
+		    <th class="col-md-2 text-center" >Etiquetas</th>
+		    </tr>
+		</thead>
+		<tbody>
+
+		    <tr ng-repeat="issue in vm.issues" >
+		    
+		    <td >
+		    	{{issue.title}}
+ 				<!--a  ng-href="/#/issues/{{issue.id}}/issues"  ng-click="vm.onClickissue(issue.id)">{{issue.title}}</a-->
+		    </td>
+
+		    <td class="text-center">
+		        {{issue.state}}
+		    </td>
+		    <td> {{issue.author.name}}</td>
+		     <td> {{issue.assignee.name}} </td>
+		    <td>  {{issue.labels}}</td>
+
+		    </tr>
+		</tbody>
+	</table>
+	</div>
+
+    </div>
+<nav class="text-center "  >      
+	<ul class="pagination pg-dark" role="navigation"  >       
+		<li class="page-item" ng-class="{ 'active': (n + 1) == vm.actual }" ng-repeat='n in vm.getPages()'><a class="page-link" href="" ng-click="vm.onClickPage(n + 1)" >{{n + 1}}</a></li>         
+		<!--li ng-if="!(vm.actual==vm.totalpages)" ><a href="" ng-click=''>Siguiente</a></li-->
+	</ul>   
+</nav>

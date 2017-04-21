@@ -1,0 +1,9 @@
+{
+    "devDependencies": {
+        "del": "~0",
+        "gulp": "~3",
+        "gulp-rename": "~1",
+        "gulp-uglify": "~0",
+        "gulp-util": "~2"
+    }
+}
